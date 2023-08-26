@@ -12,7 +12,7 @@ def main(data, modelName, plotName, eta, epochs):
     model_or.save(filename=modelName, model_dir="model")
     save_plot(df_OR, model_or, filename=plotName)
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     OR = {
         "X1":[0,0,1,1],
         "X2":[0,1,0,1],
