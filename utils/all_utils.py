@@ -2,8 +2,10 @@ import matplotlib.pyplot as plt
 import os
 import numpy as np
 from matplotlib.colors import ListedColormap
+import logging
 
 def prepare_data(df, target_col):
+    logging.info("preparing data for training")
     X = df.drop(target_col, axis=1)
 
     y = df[target_col]
@@ -12,6 +14,7 @@ def prepare_data(df, target_col):
 
 def save_plot(df, model, filename, plot_dir='plots'):
     def _create_base_plot(df):
+        logging.info("crarting the base plot")
         df.plot(kind="scatter", x="X1", y='X2', c='y', s=100, cmap="coolwarm")
         plt.axhline(y=0, color='black', linestyle="--", linewidth=2)
         plt.axvline(x=0, color='black', linestyle="--", linewidth=2)
@@ -20,6 +23,7 @@ def save_plot(df, model, filename, plot_dir='plots'):
         figure.set_size_inches(10, 8)
 
     def _plot_decision_region(X, y, classifier, resolution=0.02):
+        logging.info("plotting the decison boundaries")
         colors = ("cyan", "lightgreen")
         cmap = ListedColormap(colors)
 
