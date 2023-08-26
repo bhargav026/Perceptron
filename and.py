@@ -4,13 +4,13 @@ from utils.model import Perceptron
 def main(data, modelName, plotName, eta, epochs):
     df_AND = pd.DataFrame(data)
     X, y = prepare_data(df_AND, "y")
-    model_and = Perceptron(eta=eta, epochs=epochs)
+    model = Perceptron(eta=eta, epochs=epochs)
 
-    model_and.fit(X, y)
-    _ = model_and.total_loss()
+    model.fit(X, y)
+    _ = model.total_loss()
 
-    model_and.save(filename=modelName, model_dir="model")
-    save_plot(df_AND, model_and, filename=plotName)
+    model.save(filename=modelName, model_dir="model")
+    save_plot(df_AND, model, filename=plotName)
 
 if __name__ == "__main__":
     AND = {
